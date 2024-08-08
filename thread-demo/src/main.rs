@@ -10,13 +10,28 @@ mod concurrency_count;
 
 mod thread_sleep_and_thread_park;
 
+mod scoped_thread;
+
+mod thread_local;
+
+mod thread_move;
+
+
 use basic_thread::*;
+
 use thread_builder::*;
+
 use current_thread::*;
 
 use concurrency_count::*;
 
 use thread_sleep_and_thread_park::*;
+
+use scoped_thread::*;
+
+use thread_local::*;
+
+use thread_move::*;
 
 fn main() {
     // println!("Hello, world!");
@@ -39,6 +54,11 @@ fn main() {
     // thread_park2();
     // thread_park3();
     // thread_park4();
+
+    // start_scoped_threads();
+
+    // start_threads_with_threadlocal();
+    start_one_thread_with_move();
 }
 
 
