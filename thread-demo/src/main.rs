@@ -15,7 +15,14 @@ mod scoped_thread;
 mod thread_local;
 
 mod thread_move;
-
+mod control_thread;
+mod thread_priority;
+mod thread_affinity;
+mod thread_panic;
+mod crossbeam_scoped_thread;
+mod rayon_scoped_thread;
+mod send_wrapper;
+mod go_spawn;
 
 use basic_thread::*;
 
@@ -32,6 +39,22 @@ use scoped_thread::*;
 use thread_local::*;
 
 use thread_move::*;
+
+use control_thread::*;
+
+use thread_priority::*;
+
+use thread_affinity::*;
+
+use thread_panic::*;
+
+use crossbeam_scoped_thread::*;
+
+
+use rayon_scoped_thread::*;
+
+use send_wrapper::*;
+use go_spawn::*;
 
 fn main() {
     // println!("Hello, world!");
@@ -58,7 +81,36 @@ fn main() {
     // start_scoped_threads();
 
     // start_threads_with_threadlocal();
-    start_one_thread_with_move();
+
+    // start_one_thread_with_move();
+
+    // control_thread();
+
+    // start_thread_with_priority();
+
+    // thread_builder();
+
+    // bind_even_cores();
+
+    // panic_example();
+
+    // panic_caught_example()
+
+    // thread_scope_panic_example();
+
+    // crossbeam_scope();
+
+    // rayon_scope();
+
+    // rayon_fifo_example();
+
+    // wrong_send();
+
+    // send_wrapper()
+    go_thread();
 }
+
+
+
 
 
