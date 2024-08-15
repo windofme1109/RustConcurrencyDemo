@@ -6,12 +6,14 @@
 mod cow;
 mod beef;
 mod box_pointer;
+mod cell_type_pointer;
 
 use cow::*;
 
 use beef::*;
 
 use box_pointer::*;
+use cell_type_pointer::*;
 
 fn main() {
     // println!("Hello, world!");
@@ -29,6 +31,9 @@ fn main() {
 
     // box_demo();
 
-    linked_list_from_box();
+    // linked_list_from_box();
 
+    cell_demo();
+
+    refcell_demo();
 }
