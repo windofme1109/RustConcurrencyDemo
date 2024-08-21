@@ -21,31 +21,35 @@ pub fn cell_demo() {
     let y = &x;
     // 修改 x 的值
     x.set(10);
-    // 
+    //
     println!("y: {:?}", y.get());
 }
 
 // 2. RefCell
-// 
+//
 // RefCell<T> 提供了更灵活的内部可变性，允许在运行时检查借用规则, 通过运行时借 用检查来实现：
 // 1. 通过 borrow 和 borrow_mut 方法进行不可变和可变借用
 // 2. 借用必须在作用域结束前归还, 否则会 panic
 // 3. 适用于包含多个字段的容器
 
 pub fn refcell_demo() {
+
     let x = RefCell::new(42);
-    {
-    let y = x.borrow();
-    // 
-    println!("y: {:?}", *y);
-    } 
     
     {
+        // 这个作用域内，只能实现不可变借用
+        let y = x.borrow();
+        //
+        println!("y: {:?}", *y);
+    }
+
+    {
         let mut z = x.borrow_mut();
+        // 这个作用域内可以获得可变引用
         *z = 10;
 
         println!("z: {:?}", z);
     }
-    
+
     println!("x: {:?}", x.borrow().deref());
 }

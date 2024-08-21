@@ -3,17 +3,28 @@
 // 其基本思想是, 当有多个调用者 (callers) 同时请求相同的资源时, 都会共享同一份资源
 // 直到有调用者试图修改资源内容时, 系统才会真正复制一份副本出来给该调用者, 而其 他调用者仍然使用原来的资源。
 
+
 mod cow;
 mod beef;
 mod box_pointer;
 mod cell_type_pointer;
+mod once_cell;
+mod lazyCell_lazyLock;
 
+mod reference_counting;
 use cow::*;
 
 use beef::*;
 
 use box_pointer::*;
+
 use cell_type_pointer::*;
+
+use once_cell::*;
+
+use lazyCell_lazyLock::*;
+
+use reference_counting::*;
 
 fn main() {
     // println!("Hello, world!");
@@ -33,7 +44,23 @@ fn main() {
 
     // linked_list_from_box();
 
-    cell_demo();
+    // cell_demo();
 
-    refcell_demo();
+    // refcell_demo();
+
+    // once_cell_example();
+
+    // lazy_cell();
+
+    // 使用 lazyLock
+    // println!("ready"); 
+    // std::thread::spawn(|| {
+    //     println!("{:?}", HASHMAP.get(&13));
+    // }).join().unwrap();
+
+    // println!("{:?}", HASHMAP.get(&74));
+
+    basic_rc();
+    rc_refcell_example()
 }
+
